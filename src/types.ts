@@ -21,9 +21,9 @@ export interface Parameters {
 type Conditions =
   | FrontMostApplicationCondition
   | DeviceCondition
-  | KeybaordTypeCondition
+  | KeyboardTypeCondition
   | InputSourceCondition
-  | VaribaleCondition
+  | VariableCondition
   | EventChangedCondition;
 
 type FrontMostApplicationCondition = {
@@ -35,10 +35,10 @@ type FrontMostApplicationCondition = {
 
 type DeviceCondition = {
   type:
-    | "device_if"
-    | "device_unless"
-    | "device_exists_if"
-    | "device_exists_unless";
+  | "device_if"
+  | "device_unless"
+  | "device_exists_if"
+  | "device_exists_unless";
   identifiers: Identifiers;
   description?: string;
 };
@@ -53,7 +53,7 @@ interface Identifiers {
   is_built_in_keyboard?: boolean;
 }
 
-type KeybaordTypeCondition = {
+type KeyboardTypeCondition = {
   type: "keyboard_type_if" | "keyboard_type_unless";
   keyboard_types: string[];
   description?: string;
@@ -71,7 +71,7 @@ interface InputSource {
   input_mode_id?: string;
 }
 
-type VaribaleCondition = {
+type VariableCondition = {
   type: "variable_if" | "variable_unless";
   name: string | number | boolean;
   value: string | number;
@@ -93,6 +93,27 @@ export interface SimultaneousOptions {
   detect_key_down_uninterruptedly?: boolean;
 }
 
+type ModifiersKeys =
+  | "caps_lock"
+  | "left_command"
+  | "left_control"
+  | "left_option"
+  | "left_shift"
+  | "right_command"
+  | "right_control"
+  | "right_option"
+  | "right_shift"
+  | "fn"
+  | "command"
+  | "control"
+  | "option"
+  | "shift"
+  | "left_alt"
+  | "left_gui"
+  | "right_alt"
+  | "right_gui"
+  | "any";
+
 export interface From {
   key_code?: KeyCode;
   simultaneous?: SimultaneousFrom[];
@@ -101,13 +122,13 @@ export interface From {
 }
 
 export interface Modifiers {
-  optional?: string[];
-  mandatory?: string[];
+  optional?: ModifiersKeys[];
+  mandatory?: ModifiersKeys[];
 }
 
 export interface To {
   key_code?: KeyCode;
-  modifiers?: string[];
+  modifiers?: ModifiersKeys[];
   shell_command?: string;
   set_variable?: {
     name: string;
