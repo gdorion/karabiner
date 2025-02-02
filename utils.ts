@@ -113,41 +113,105 @@ export function createHyperSubLayers(subLayers: {
   return Object.entries(subLayers).map(([key, value]) =>
     "to" in value
       ? {
-          description: `Hyper Key + ${key}`,
-          manipulators: [
-            {
-              ...value,
-              type: "basic" as const,
-              from: {
-                key_code: key as KeyCode,
-                modifiers: {
-                  optional: ["any"],
-                },
+        description: `Hyper Key + ${key}`,
+        manipulators: [
+          {
+            ...value,
+            type: "basic" as const,
+            from: {
+              key_code: key as KeyCode,
+              modifiers: {
+                optional: ["any"],
               },
-              conditions: [
-                {
-                  type: "variable_if",
-                  name: "hyper",
-                  value: 1,
-                },
-                ...allSubLayerVariables.map((subLayerVariable) => ({
-                  type: "variable_if" as const,
-                  name: subLayerVariable,
-                  value: 0,
-                })),
-              ],
             },
-          ],
-        }
+            conditions: [
+              {
+                type: "variable_if",
+                name: "hyper",
+                value: 1,
+              },
+              ...allSubLayerVariables.map((subLayerVariable) => ({
+                type: "variable_if" as const,
+                name: subLayerVariable,
+                value: 0,
+              })),
+            ],
+          },
+        ],
+      }
       : {
-          description: `Hyper Key sublayer "${key}"`,
-          manipulators: createHyperSubLayer(
-            key as KeyCode,
-            value,
-            allSubLayerVariables
-          ),
-        }
+        description: `Hyper Key sublayer "${key}"`,
+        manipulators: createHyperSubLayer(key as KeyCode, value, allSubLayerVariables),
+      }
   );
+}
+
+export function createVimHyperTopLevelShortcuts(): KarabinerRules[] {
+  return [{
+    description: "Change hyper to hjkl arrows",
+    manipulators: [
+      {
+        type: "basic",
+        from: {
+          key_code: "h",
+        },
+        to: [
+          {
+            key_code: "left_arrow",
+          },
+        ],
+        conditions: [{ name: "hyper", type: "variable_if", value: 1 }],
+      },
+      {
+        type: "basic",
+        from: {
+          key_code: "j",
+        },
+        to: [
+          {
+            key_code: "down_arrow",
+          },
+        ],
+        conditions: [{ name: "hyper", type: "variable_if", value: 1 }],
+      },
+      {
+        type: "basic",
+        from: {
+          key_code: "k",
+        },
+        to: [
+          {
+            key_code: "up_arrow",
+          },
+        ],
+        conditions: [{ name: "hyper", type: "variable_if", value: 1 }],
+      },
+      {
+        type: "basic",
+        from: {
+          key_code: "l",
+        },
+        to: [
+          {
+            key_code: "right_arrow",
+          },
+        ],
+        conditions: [{ name: "hyper", type: "variable_if", value: 1 }],
+      },
+      {
+        type: "basic",
+        from: {
+          key_code: "l",
+        },
+        to: [
+          {
+            key_code: "right_arrow",
+          },
+        ],
+        conditions: [{ name: "hyper", type: "variable_if", value: 1 }],
+      },
+    ],
+  }]
 }
 
 function generateSubLayerVariableName(key: KeyCode) {
