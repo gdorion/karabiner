@@ -71,7 +71,7 @@ const rules: KarabinerRules[] = [
     },
     // o = "Open" applications
     o: {
-      1: app("1Password"),
+      b: app("BitWarden"),
       c: app("Google Chrome"),
       e: app("Messenger"),
       v: app("Visual Studio Code"),
@@ -81,13 +81,14 @@ const rules: KarabinerRules[] = [
       t: app("Things3"),
       // Open todo list managed via *H*ypersonic
       h: open(
-        "notion://www.notion.so/stellatehq/7b33b924746647499d906c55f89d5026"
+        "notion://www.notion.so/vention/Technology-Organization-a72a4aa00b8a431894d4cdc1096bb9f8?pvs=4"
       ),
       m: app("Messages"),
       f: app("Finder"),
       i: app("iTerm"),
       p: app("Spotify"),
-      w: app("Wor d")
+      w: app("Microsoft Word"),
+      g: app("Gitup"),
     },
 
     // w = "Window" via rectangle.app

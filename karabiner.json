@@ -415,13 +415,13 @@
               {
                 "to": [
                   {
-                    "shell_command": "open -a '1Password.app'"
+                    "shell_command": "open -a 'BitWarden.app'"
                   }
                 ],
-                "description": "Open -a '1Password.app'",
+                "description": "Open -a 'BitWarden.app'",
                 "type": "basic",
                 "from": {
-                  "key_code": "1",
+                  "key_code": "b",
                   "modifiers": {
                     "optional": [
                       "any"
@@ -607,10 +607,10 @@
               {
                 "to": [
                   {
-                    "shell_command": "open notion://www.notion.so/stellatehq/7b33b924746647499d906c55f89d5026"
+                    "shell_command": "open notion://www.notion.so/vention/Technology-Organization-a72a4aa00b8a431894d4cdc1096bb9f8?pvs=4"
                   }
                 ],
-                "description": "Open notion://www.notion.so/stellatehq/7b33b924746647499d906c55f89d5026",
+                "description": "Open notion://www.notion.so/vention/Technology-Organization-a72a4aa00b8a431894d4cdc1096bb9f8?pvs=4",
                 "type": "basic",
                 "from": {
                   "key_code": "h",
@@ -727,13 +727,37 @@
               {
                 "to": [
                   {
-                    "shell_command": "open -a 'Wor d.app'"
+                    "shell_command": "open -a 'Microsoft Word.app'"
                   }
                 ],
-                "description": "Open -a 'Wor d.app'",
+                "description": "Open -a 'Microsoft Word.app'",
                 "type": "basic",
                 "from": {
                   "key_code": "w",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_o",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "shell_command": "open -a 'Gitup.app'"
+                  }
+                ],
+                "description": "Open -a 'Gitup.app'",
+                "type": "basic",
+                "from": {
+                  "key_code": "g",
                   "modifiers": {
                     "optional": [
                       "any"
