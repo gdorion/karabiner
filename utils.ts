@@ -275,3 +275,26 @@ export function rectangle(name: string): LayerCommand {
 export function app(name: string): LayerCommand {
   return open(`-a '${name}.app'`);
 }
+
+export function getOpenAppsCommands(): HyperKeySublayer {
+  return {
+    b: app("BitWarden"),
+    c: app("Google Chrome"),
+    e: app("Messenger"),
+    v: app("Visual Studio Code"),
+    d: app("Docker"),
+    s: app("Slack"),
+    n: app("Notes"),
+    t: app("Things3"),
+    // Open todo list managed via *H*ypersonic
+    h: open(
+      "notion://www.notion.so/vention/Technology-Organization-a72a4aa00b8a431894d4cdc1096bb9f8?pvs=4"
+    ),
+    m: app("Messages"),
+    f: app("Finder"),
+    i: app("iTerm"),
+    p: app("Spotify"),
+    w: app("Microsoft Word"),
+    g: app("Gitup"),
+  }
+}

@@ -1,6 +1,6 @@
 import fs from "fs";
 import { KarabinerRules } from "./types";
-import { createHyperSubLayers, app, open, rectangle, createVimHyperTopLevelShortcuts } from "./utils";
+import { createHyperSubLayers, app, open, rectangle, createVimHyperTopLevelShortcuts, getOpenAppsCommands } from "./utils";
 
 const rules: KarabinerRules[] = [
   // Define the Hyper key itself
@@ -70,27 +70,9 @@ const rules: KarabinerRules[] = [
       g: open("https://github.com/ventionco"),
     },
     // o = "Open" applications
-    o: {
-      b: app("BitWarden"),
-      c: app("Google Chrome"),
-      e: app("Messenger"),
-      v: app("Visual Studio Code"),
-      d: app("Docker"),
-      s: app("Slack"),
-      n: app("Notes"),
-      t: app("Things3"),
-      // Open todo list managed via *H*ypersonic
-      h: open(
-        "notion://www.notion.so/vention/Technology-Organization-a72a4aa00b8a431894d4cdc1096bb9f8?pvs=4"
-      ),
-      m: app("Messages"),
-      f: app("Finder"),
-      i: app("iTerm"),
-      p: app("Spotify"),
-      w: app("Microsoft Word"),
-      g: app("Gitup"),
-    },
-
+    // e - "opEn" applications, single left handed key.
+    o: getOpenAppsCommands(),
+    e: getOpenAppsCommands(),
     // w = "Window" via rectangle.app
     w: {
       semicolon: {
