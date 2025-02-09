@@ -1,6 +1,6 @@
 import fs from "fs";
 import { KarabinerRules } from "./types";
-import { createHyperSubLayers, app, open, rectangle, createVimHyperTopLevelShortcuts, getOpenAppsCommands } from "./utils";
+import { createHyperSubLayers, app, open, rectangle, createVimHyperTopLevelShortcuts, getOpenAppsCommands, disableAltTab } from "./utils";
 
 const rules: KarabinerRules[] = [
   // Define the Hyper key itself
@@ -39,21 +39,7 @@ const rules: KarabinerRules[] = [
         ],
         type: "basic",
       },
-      {
-        type: "basic",
-        description: "Disable CMD + Tab to force Hyper Key usage",
-        from: {
-          key_code: "tab",
-          modifiers: {
-            mandatory: ["left_command"],
-          },
-        },
-        to: [
-          {
-            key_code: "tab",
-          },
-        ],
-      },
+      // disableAltTab(),
     ],
   },
   ...createHyperSubLayers({

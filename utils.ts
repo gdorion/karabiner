@@ -146,71 +146,52 @@ export function createHyperSubLayers(subLayers: {
   );
 }
 
+export function getBasicModificationShortcut(fromKey: KeyCode, toKey: KeyCode): Manipulator {
+  return {
+    type: "basic",
+    from: {
+      key_code: fromKey,
+    },
+    to: [
+      {
+        key_code: toKey,
+      },
+    ],
+    conditions: [{ name: "hyper", type: "variable_if", value: 1 }],
+  }
+}
+
+export function disableAltTab(): Manipulator {
+  const manipulator: Manipulator = {
+    type: "basic",
+    description: "Disable CMD + Tab to force Hyper Key usage",
+    from: {
+      key_code: "tab",
+      modifiers: {
+        mandatory: ["left_command"],
+      },
+    },
+    to: [
+      {
+        key_code: "tab",
+      },
+    ],
+  }
+
+  return manipulator
+}
+
 export function createVimHyperTopLevelShortcuts(): KarabinerRules[] {
   return [{
     description: "Change hyper to hjkl arrows",
     manipulators: [
-      {
-        type: "basic",
-        from: {
-          key_code: "h",
-        },
-        to: [
-          {
-            key_code: "left_arrow",
-          },
-        ],
-        conditions: [{ name: "hyper", type: "variable_if", value: 1 }],
-      },
-      {
-        type: "basic",
-        from: {
-          key_code: "j",
-        },
-        to: [
-          {
-            key_code: "down_arrow",
-          },
-        ],
-        conditions: [{ name: "hyper", type: "variable_if", value: 1 }],
-      },
-      {
-        type: "basic",
-        from: {
-          key_code: "k",
-        },
-        to: [
-          {
-            key_code: "up_arrow",
-          },
-        ],
-        conditions: [{ name: "hyper", type: "variable_if", value: 1 }],
-      },
-      {
-        type: "basic",
-        from: {
-          key_code: "l",
-        },
-        to: [
-          {
-            key_code: "right_arrow",
-          },
-        ],
-        conditions: [{ name: "hyper", type: "variable_if", value: 1 }],
-      },
-      {
-        type: "basic",
-        from: {
-          key_code: "l",
-        },
-        to: [
-          {
-            key_code: "right_arrow",
-          },
-        ],
-        conditions: [{ name: "hyper", type: "variable_if", value: 1 }],
-      },
-    ],
+      getBasicModificationShortcut("h", "left_arrow"),
+      getBasicModificationShortcut("j", "down_arrow"),
+      getBasicModificationShortcut("k", "up_arrow"),
+      getBasicModificationShortcut("l", "right_arrow"),
+      getBasicModificationShortcut("i", "end"),
+      getBasicModificationShortcut("u", "home"),
+    ]
   }]
 }
 
@@ -298,3 +279,4 @@ export function getOpenAppsCommands(): HyperKeySublayer {
     g: app("Gitup"),
   }
 }
+
