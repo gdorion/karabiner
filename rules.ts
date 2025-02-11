@@ -1,47 +1,10 @@
 import fs from "fs";
 import { KarabinerRules } from "./types";
-import { createHyperSubLayers, app, open, rectangle, createVimHyperTopLevelShortcuts, getOpenAppsCommands, disableAltTab } from "./utils";
+import { createHyperSubLayers, open, rectangle, createVimHyperTopLevelShortcuts, getOpenAppsCommands, generateCapsLockToHyperKeyReplacement } from "./utils";
 
 const rules: KarabinerRules[] = [
   // Define the Hyper key itself
-  {
-    description: "Hyper Key (⌃⌥⇧⌘)",
-    manipulators: [
-      {
-
-        description: "Caps Lock -> Hyper Key",
-        from: {
-          key_code: "caps_lock",
-          modifiers: {
-            optional: ["any"],
-          },
-        },
-        to: [
-          {
-            set_variable: {
-              name: "hyper",
-              value: 1,
-            },
-          },
-        ],
-        to_after_key_up: [
-          {
-            set_variable: {
-              name: "hyper",
-              value: 0,
-            },
-          },
-        ],
-        to_if_alone: [
-          {
-            key_code: "escape",
-          },
-        ],
-        type: "basic",
-      },
-      // disableAltTab(),
-    ],
-  },
+  generateCapsLockToHyperKeyReplacement(),
   ...createHyperSubLayers({
     spacebar: open(
       "raycast://extensions/stellate/mxstbr-commands/create-notion-todo"
