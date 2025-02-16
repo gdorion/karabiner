@@ -320,3 +320,72 @@ export function getOpenAppsCommands(): HyperKeySublayer {
     g: app("Gitup"),
   }
 }
+
+export function getWindowMovementCommands(): HyperKeySublayer {
+  return {
+    semicolon: {
+      description: "Window: Hide",
+      to: [
+        {
+          key_code: "h",
+          modifiers: ["right_command"],
+        },
+      ],
+    },
+    s: rectangle("left-half"),
+    d: rectangle("maximize"),
+    y: rectangle("previous-display"),
+    o: rectangle("next-display"),
+    k: rectangle("top-half"),
+    j: rectangle("bottom-half"),
+    h: rectangle("left-half"),
+    l: rectangle("right-half"),
+    f: rectangle("right-half"),
+    u: {
+      description: "Window: Previous Tab",
+      to: [
+        {
+          key_code: "tab",
+          modifiers: ["right_control", "right_shift"],
+        },
+      ],
+    },
+    i: {
+      description: "Window: Next Tab",
+      to: [
+        {
+          key_code: "tab",
+          modifiers: ["right_control"],
+        },
+      ],
+    },
+    n: {
+      description: "Window: Next Window",
+      to: [
+        {
+          key_code: "grave_accent_and_tilde",
+          modifiers: ["right_command"],
+        },
+      ],
+    },
+    b: {
+      description: "Window: Back",
+      to: [
+        {
+          key_code: "open_bracket",
+          modifiers: ["right_command"],
+        },
+      ],
+    },
+    // Note: No literal connection. Both f and n are already taken.
+    m: {
+      description: "Window: Forward",
+      to: [
+        {
+          key_code: "close_bracket",
+          modifiers: ["right_command"],
+        },
+      ],
+    },
+  }
+}

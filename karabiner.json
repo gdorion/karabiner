@@ -982,6 +982,38 @@
                                         "value": 1
                                     }
                                 ],
+                                "description": "Window: left-half",
+                                "from": {
+                                    "key_code": "s",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "shell_command": "open -g rectangle://execute-action?name=left-half" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_w",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "Window: maximize",
+                                "from": {
+                                    "key_code": "d",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "shell_command": "open -g rectangle://execute-action?name=maximize" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_w",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "description": "Window: previous-display",
                                 "from": {
                                     "key_code": "y",
@@ -1078,12 +1110,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "Window: maximize",
+                                "description": "Window: right-half",
                                 "from": {
                                     "key_code": "f",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "open -g rectangle://execute-action?name=maximize" }],
+                                "to": [{ "shell_command": "open -g rectangle://execute-action?name=right-half" }],
                                 "type": "basic"
                             },
                             {
