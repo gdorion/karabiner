@@ -292,7 +292,7 @@ export function createHyperOpenAppsShortcuts(): KarabinerRules[] {
       getOpenAppTopLevel("v", "Visual Studio Code"),
       getOpenAppTopLevel("t", "Things3"),
       getOpenAppTopLevel("s", "Things3"),
-      getOpenAppTopLevel("d", "UpNote"),
+      getOpenAppTopLevel("d", "Notes"),
     ]
   }]
 }
