@@ -1624,6 +1624,59 @@
               {
                 "type": "basic",
                 "from": {
+                  "key_code": "x",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a 'Visual Studio Code.app'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "name": "hyper_sublayer_b",
+                    "type": "variable_if",
+                    "value": 0
+                  },
+                  {
+                    "name": "hyper_sublayer_o",
+                    "type": "variable_if",
+                    "value": 0
+                  },
+                  {
+                    "name": "hyper_sublayer_e",
+                    "type": "variable_if",
+                    "value": 0
+                  },
+                  {
+                    "name": "hyper_sublayer_s",
+                    "type": "variable_if",
+                    "value": 0
+                  },
+                  {
+                    "name": "hyper_sublayer_v",
+                    "type": "variable_if",
+                    "value": 0
+                  },
+                  {
+                    "name": "hyper_sublayer_c",
+                    "type": "variable_if",
+                    "value": 0
+                  },
+                  {
+                    "name": "hyper",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
                   "key_code": "t",
                   "modifiers": {
                     "optional": [

@@ -290,6 +290,7 @@ export function createHyperOpenAppsShortcuts(): KarabinerRules[] {
     manipulators: [
       getOpenAppTopLevel("c", "Google Chrome"),
       getOpenAppTopLevel("v", "Visual Studio Code"),
+      getOpenAppTopLevel("x", "Visual Studio Code"),
       getOpenAppTopLevel("t", "Things3"),
       getOpenAppTopLevel("s", "Things3"),
       getOpenAppTopLevel("d", "Notes"),
