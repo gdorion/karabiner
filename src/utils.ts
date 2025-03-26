@@ -293,7 +293,7 @@ export function createHyperOpenAppsShortcuts(): KarabinerRules[] {
       getOpenAppTopLevel("x", "Visual Studio Code"),
       getOpenAppTopLevel("t", "Things3"),
       getOpenAppTopLevel("s", "Things3"),
-      getOpenAppTopLevel("d", "Notes"),
+      getOpenAppTopLevel("d", "UpNote"),
     ]
   }]
 }
@@ -391,6 +391,7 @@ export function getOpenAppsCommands(): HyperKeySublayer {
     p: app("Spotify"),
     w: app("Microsoft Word"),
     g: app("Gitup"),
+    u: app("UpNote"),
   }
 }
 
