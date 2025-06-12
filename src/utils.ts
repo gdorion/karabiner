@@ -293,7 +293,7 @@ export function createHyperOpenAppsShortcuts(): KarabinerRules[] {
       getOpenAppTopLevel("x", "Visual Studio Code"),
       getOpenAppTopLevel("t", "Things3"),
       getOpenAppTopLevel("s", "Things3"),
-      getOpenAppTopLevel("d", "UpNote"),
+      getOpenAppTopLevel("d", "NotePlan"),
     ]
   }]
 }
@@ -379,7 +379,7 @@ export function getOpenAppsCommands(): HyperKeySublayer {
     v: app("Visual Studio Code"),
     d: app("Docker"),
     s: app("Slack"),
-    n: app("Notes"),
+    n: app("NotePlan"),
     t: app("Things3"),
     // Open todo list managed via *H*ypersonic
     h: open(

@@ -11,6 +11,7 @@
     "tsm": "^2.2.2"
   },
   "scripts": {
+    "refresh": "rm -rf ~/.config/karabiner/karabiner.json && npm run build && ln -s ~/Code/karabiner/karabiner.json ~/.config/karabiner/karabiner.json",
     "build": "tsm src/rules.ts",
     "watch": "nodemon --exec yarn build -e ts"
   },
