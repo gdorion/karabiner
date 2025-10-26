@@ -9,6 +9,7 @@ import {
   getWindowMovementCommands,
   createHyperOpenAppsShortcuts,
   getOpenBrowserCommands,
+  createHyperTopLevelShortcuts,
 } from "./utils";
 import { writeKarabinerFile } from "./file";
 
@@ -25,7 +26,7 @@ const rules: KarabinerRules[] = [
     // w = "Window" via rectangle.app
     w: getWindowMovementCommands(),
   }),
-  ...createHyperOpenAppsShortcuts(),
+  ...createHyperTopLevelShortcuts(),
   ...createVimHyperTopLevelShortcuts(),
 ];
 

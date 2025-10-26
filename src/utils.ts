@@ -188,13 +188,25 @@ export function createHyperSubLayers(subLayers: {
 }
 
 export function getOpenAppTopLevel(key: KeyCode, name: string): Manipulator {
+  return executeTopLevel(key, name, (): LayerCommand => {
+    return app(name)
+  })
+}
+
+export function getMoveWindowTopLevelCommand(key: KeyCode, name: string): Manipulator {
+  return executeTopLevel(key, name, (): LayerCommand => {
+    return rectangle(name)
+  })
+}
+
+export function executeTopLevel(key: KeyCode, name: string, toCallback: () => LayerCommand): Manipulator {
   return {
     type: "basic",
     from: {
       key_code: key,
       "modifiers": { "optional": ["any"] }
     },
-    to: app(name).to,
+    to: toCallback().to,
     conditions: [
       {
         "name": "hyper_sublayer_b",
@@ -284,7 +296,7 @@ export function createVimHyperTopLevelShortcuts(): KarabinerRules[] {
   }]
 }
 
-export function createHyperOpenAppsShortcuts(): KarabinerRules[] {
+export function createHyperTopLevelShortcuts(): KarabinerRules[] {
   return [{
     description: "Open App at top Level",
     manipulators: [
@@ -292,8 +304,10 @@ export function createHyperOpenAppsShortcuts(): KarabinerRules[] {
       getOpenAppTopLevel("v", "Visual Studio Code"),
       getOpenAppTopLevel("x", "Visual Studio Code"),
       getOpenAppTopLevel("t", "Things3"),
-      getOpenAppTopLevel("s", "Things3"),
-      getOpenAppTopLevel("d", "NotePlan"),
+      getMoveWindowTopLevelCommand("s", "left-half"),
+      getMoveWindowTopLevelCommand("d", "maximize"),
+      getMoveWindowTopLevelCommand("f", "right-half"),
+      getOpenAppTopLevel("d", "UpNote"),
     ]
   }]
 }
