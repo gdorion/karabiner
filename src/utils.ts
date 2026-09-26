@@ -299,6 +299,7 @@ export function createHyperTopLevelShortcuts(): KarabinerRules[] {
   return [{
     description: "Open App at top Level",
     manipulators: [
+      getOpenAppTopLevel("c", "Google Chrome"),
       getOpenAppTopLevel("v", "Visual Studio Code"),
       getOpenAppTopLevel("x", "Visual Studio Code"),
       getOpenAppTopLevel("t", "Things3"),
