@@ -290,7 +290,6 @@ export function createVimHyperTopLevelShortcuts(): KarabinerRules[] {
       getBasicModificationShortcut("j", "down_arrow"),
       getBasicModificationShortcut("k", "up_arrow"),
       getBasicModificationShortcut("l", "right_arrow"),
-      getBasicModificationShortcut("i", "end"),
       getBasicModificationShortcut("u", "home"),
     ]
   }]
@@ -300,14 +299,14 @@ export function createHyperTopLevelShortcuts(): KarabinerRules[] {
   return [{
     description: "Open App at top Level",
     manipulators: [
-      getOpenAppTopLevel("c", "Google Chrome"),
       getOpenAppTopLevel("v", "Visual Studio Code"),
       getOpenAppTopLevel("x", "Visual Studio Code"),
       getOpenAppTopLevel("t", "Things3"),
+      getOpenAppTopLevel("i", "cmux"),
+      getOpenAppTopLevel("n", "NotePlan"),
       getMoveWindowTopLevelCommand("s", "left-half"),
       getMoveWindowTopLevelCommand("d", "maximize"),
       getMoveWindowTopLevelCommand("f", "right-half"),
-      getOpenAppTopLevel("d", "UpNote"),
     ]
   }]
 }
