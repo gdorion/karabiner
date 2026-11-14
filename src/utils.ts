@@ -401,7 +401,7 @@ export function getOpenAppsCommands(): HyperKeySublayer {
     ),
     m: app("Messages"),
     f: app("Finder"),
-    i: app("iTerm"),
+    i: app("Ghostty"),
     p: app("Spotify"),
     w: app("Microsoft Word"),
     g: app("Gitup"),
